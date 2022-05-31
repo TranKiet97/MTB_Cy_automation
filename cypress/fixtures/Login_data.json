@@ -1,0 +1,22 @@
+{
+  "rows": [
+    {
+      "username": "admin",
+      "password": 12345678
+    },
+    {
+      "password": 12345678
+    },
+    {
+      "username": "admin"
+    },
+    {
+      "username": "xxxxx",
+      "password": 12345678
+    },
+    {
+      "username": "admin",
+      "password": 123456
+    }
+  ]
+}

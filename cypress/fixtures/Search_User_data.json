@@ -1,0 +1,67 @@
+{
+  "rows": [
+    {
+      "numerical order": 1,
+      "testname": "Search user with all values ",
+      "name": "Mỹ Thuật Bụi",
+      "email": "dtpanh20101997@gmail.com",
+      "phone": "0988124778",
+      "status": "W",
+      "storage": "All"
+    },
+    {
+      "numerical order": 2,
+      "testname": "Search user with name, email",
+      "name": "Mỹ Thuật Bụi",
+      "email": "dtpanh20101997@gmail.com",
+      "phone": "N",
+      "status": "N",
+      "storage": "N"
+    },
+    {
+      "numerical order": 3,
+      "testname": "Search user with phone, status = \"worked\" , storage = \"all\"",
+      "name": "N",
+      "email": "N",
+      "phone": "0988124778",
+      "status": "W",
+      "storage": "All"
+    },
+    {
+      "numerical order": 4,
+      "testname": "Search user with name, phone",
+      "name": "Mỹ Thuật Bụi",
+      "email": "N",
+      "phone": "0988124778",
+      "status": "N",
+      "storage": "N"
+    },
+    {
+      "numerical order": 5,
+      "testname": "Search user with email, status = \"worked\"",
+      "name": "N",
+      "email": "dtpanh20101997@gmail.com",
+      "phone": "N",
+      "status": "W",
+      "storage": "N"
+    },
+    {
+      "numerical order": 6,
+      "testname": "Search user with name, storage = \"none\" & storage user",
+      "name": "Mỹ Thuật Bụi",
+      "email": "N",
+      "phone": "N",
+      "status": "N",
+      "storage": "None"
+    },
+    {
+      "numerical order": 7,
+      "testname": "Search user with name, storage = \"archived\" & unstorage user",
+      "name": "Mỹ Thuật Bụi",
+      "email": "N",
+      "phone": "N",
+      "status": "N",
+      "storage": "Archived"
+    }
+  ]
+}

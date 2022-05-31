@@ -1,0 +1,5 @@
+{
+    "ChromeWebSecurity": false,
+    "$schema": "https://on.cypress.io/cypress.schema.json",
+    "projectId": "n8h5m3"
+}

@@ -1,0 +1,20 @@
+{
+    "name": "cypress_automation",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "cypress:open": "cypress open",
+        "cypress:runChromeHeadless": "cypress run --headless --browser chrome --spec cypress/integration/pom/*.spec.js --record --key a6c969d2-ec91-4f55-90fb-cdfd2f21a8cd"
+    },
+    "author": "Tran_Anh_Kiet",
+    "license": "ISC",
+    "devDependencies": {
+        "cypress": "^9.6.1",
+        "node-xlsx": "^0.21.0"
+    },
+    "dependencies": {
+        "jsonpath": "^1.1.1"
+    }
+}
