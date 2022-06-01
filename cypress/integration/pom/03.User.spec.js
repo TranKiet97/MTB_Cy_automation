@@ -65,6 +65,7 @@ describe('Create_User', () => {
         cy.Login();
         HomePage.Navigate_to_UserPage()
     });
+    afterEach(() => { cy.wait(500) })
 
     it('Create user with all valid values & status = "worked"', () => {
         UserPage.Create_User(0, 'Create_User_data')
@@ -80,54 +81,49 @@ describe('Create_User', () => {
         UserPage.Compare_UI('Create_User_data')
         UserPage.Delete_User()
     })
-    it.only('Create user with all feilds be blanked', () => {
+    it('Create user with all feilds be blanked', () => {
         UserPage.Create_User(2, 'Create_User_data')
-        common.elements.ErrorMs().should('have.length', 6)
-
+        UserPage.Check_Error(6, 'Không được để trống')
     })
     it('Create user with the name be blanked', () => {
         UserPage.Create_User(3, 'Create_User_data')
-        UserPage.Search_User(3, 'Create_User_data')
-    })
-    it('Create user with the username contain special characters', () => {
-        UserPage.Create_User(4, 'Create_User_data')
-        UserPage.Search_User(4, 'Create_User_data')
+        UserPage.Check_Error(1, 'Không được để trống')
     })
     it('Create user with the username less than 5 characters', () => {
-        UserPage.Create_User(5, 'Create_User_data')
-        UserPage.Search_User(5, 'Create_User_data')
+        UserPage.Create_User(4, 'Create_User_data')
+        UserPage.Check_Error(1, 'Tên đăng nhập tối thiểu 5 ký tự')
     })
     it('Create user with the username be blanked', () => {
-        UserPage.Create_User(6, 'Create_User_data')
-        UserPage.Search_User(6, 'Create_User_data')
+        UserPage.Create_User(5, 'Create_User_data')
+        UserPage.Check_Error(1, 'Không được để trống')
     })
     it('Create user with the invalid email', () => {
-        UserPage.Create_User(7, 'Create_User_data')
-        UserPage.Search_User(7, 'Create_User_data')
+        UserPage.Create_User(6, 'Create_User_data')
+        UserPage.Check_Error(1, 'Email hợp lệ. ví dụ: mtb@abc.com')
     })
     it('Create user with the email be blanked', () => {
-        UserPage.Create_User(8, 'Create_User_data')
-        UserPage.Search_User(8, 'Create_User_data')
+        UserPage.Create_User(7, 'Create_User_data')
+        UserPage.Check_Error(1, 'Không được để trống')
     })
     it('Create user with the invalid phone', () => {
-        UserPage.Create_User(9, 'Create_User_data')
-        UserPage.Search_User(9, 'Create_User_data')
+        UserPage.Create_User(8, 'Create_User_data')
+        UserPage.Check_Error(1, 'Số điện thoại không hợp lệ')
     })
     it('Create user with the the phone be blanked', () => {
-        UserPage.Create_User(10, 'Create_User_data')
-        UserPage.Search_User(10, 'Create_User_data')
+        UserPage.Create_User(9, 'Create_User_data')
+        UserPage.Check_Error(1, 'Không được để trống')
     })
     it('Create user with the password less than 6 characters', () => {
-        UserPage.Create_User(11, 'Create_User_data')
-        UserPage.Search_User(11, 'Create_User_data')
+        UserPage.Create_User(10, 'Create_User_data')
+        UserPage.Check_Error(1, 'Mật khẩu tối thiểu 6 kí tự')
     })
     it('Create user with the password be blanked', () => {
-        UserPage.Create_User(12, 'Create_User_data')
-        UserPage.Search_User(12, 'Create_User_data')
+        UserPage.Create_User(11, 'Create_User_data')
+        UserPage.Check_Error(2, 'Không được để trống')
     })
     it('Create user witrh the password & repassword be not the same', () => {
-        UserPage.Create_User(13, 'Create_User_data')
-        UserPage.Search_User(13, 'Create_User_data')
+        UserPage.Create_User(12, 'Create_User_data')
+        UserPage.Check_Error(1, 'Vui lòng nhập đúng mật khẩu')
     })
 
 })

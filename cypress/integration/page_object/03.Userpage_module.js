@@ -58,15 +58,15 @@ class UserPage {
     }
     Set_Condition_Create(Name, Username, Email, Phone, Type, Role, Status, Password, Repassword) {
         common.elements.Newbtn().eq(0).click();
-        if (Name == "N") { common.elements.Name().should('have.value', '') } else { common.elements.Name().type(Name) };
-        if (Username != "N") { common.elements.Username().type(Username) } else { common.elements.Username().should('have.value', '') };
-        if (Email != "N") { common.elements.Email().type(Email) } else { common.elements.Email().should('have.value', '') };
-        if (Phone != "N") { common.elements.Phone().type(Phone) } else { common.elements.Phone().should('have.value', '') };
+        if (Name == "N") { cy.log('Name be blanked') } else { common.elements.Name().type(Name) };
+        if (Username != "N") { common.elements.Username().type(Username) } else { cy.log('Username be blanked') };
+        if (Email != "N") { common.elements.Email().type(Email) } else { cy.log('Email be blanked') };
+        if (Phone != "N") { common.elements.Phone().type(Phone) } else { cy.log('Phone be blanked') };
         common.elements.Type().select(Type);
         common.elements.Role().select(Role);
         if (Status == "W") { this.elements.Status().select(0) } else { this.elements.Status().select(1) };
-        if (Password != "N") { common.elements.Password().type(Password) } else { common.elements.Password().should('have.value', '') };
-        if (Repassword != "N") { common.elements.Repassword().type(Repassword) } else { common.elements.Repassword().should('have.value', '') };
+        if (Password == "N") { cy.log('Password bị để trống') } else { common.elements.Password().type(Password) };
+        if (Repassword != "N") { common.elements.Repassword().type(Repassword) } else { cy.log('Repassword bị để trống') };
     }
     Create_User(index, Jsonfile) {
         cy.fixture(Jsonfile).then((data) => {
@@ -89,6 +89,17 @@ class UserPage {
         common.elements.Deletebtn().eq(5).click()
         cy.get('[class="euiTableRow"]').should('have.text', 'No items found')
         common.elements.Noti().should('be.visible');
+    }
+    Check_Error(num, mess) {
+        common.elements.ErrorMs()
+            .should('have.length', num)
+            .each(($item, index, $list) => {
+                return 'status'
+            })
+            .then(($list) => {
+                expect($list).to.contain(mess)
+            })
+        cy.log('có ' + num + ' trường không hợp lệ')
     }
 }
 module.exports = new UserPage();
